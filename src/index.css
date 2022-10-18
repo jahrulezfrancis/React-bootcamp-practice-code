@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.product-container {
+  width: 300px;
+  margin: 1em;
+  background-color: yellow;
+  padding: 1em;
+  box-shadow: .2em .2em .5em .1em green;
+  gap: 1em;
+}

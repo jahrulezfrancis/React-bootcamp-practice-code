@@ -1,0 +1,29 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "160000000003010",
+      "name": "Polls",
+      "domain": {
+        "id": "10047535593",
+        "name": "polls-789134239.development"
+      },
+      "env": [
+        {
+          "idx": 1,
+          "id": "789134239",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}
