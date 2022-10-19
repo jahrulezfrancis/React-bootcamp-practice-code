@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from './Button';
 import { Input } from './Input';
 
 // function WelcomeMessage() {
@@ -54,28 +55,70 @@ import { Input } from './Input';
 
 
 export function Login() {
-    const [email, setEmail] = useState('')
-    const [userMail, setUserMail] = useState('');
+    const [fullName, setFullName] = useState({
+        FName: '',
+        LName: '',
+        Email: ''
+    })
+
 
     function HandleChange(e) {
-        setEmail(e.target.value)
+        const { name, value } = e.target;
+
+        setFullName(PrevValue => {
+            if (name === 'FName') {
+                return {
+                    FName: value,
+                    LName: PrevValue.LName
+                }
+            } else if (name === 'LName') {
+                return {
+                    FName: PrevValue.FName,
+                    LName: value
+                }
+            } else if (name === 'Email') {
+                return {
+                    FName: PrevValue.FName,
+                    LName: PrevValue.LName,
+                    Email: value
+                }
+            }
+        })
+        e.preventDefault()
     }
 
-    function MailSetter(e) {
-        setUserMail(email)
-
+    function HandleSubmit() {
+        HandleChange()
         e.preventDefault()
     }
 
 
+
+    // function HandleLName(e) {
+    //     const NewValue = e.target.value
+    //     setFullName({ LName: NewValue })
+    // }
+
     return (
         <div>
             <form>
-                <div style={{ display: 'grid', gap: '1em' }}>
-                    <h1>{userMail}</h1>
-                    <label htmlFor="email">Email</label>
-                    <Input type='text' onChange={HandleChange} value={email} placeHolder='enter you email' />
-                    <button onClick={MailSetter}>Submit</button>
+                <div className='form-container'>
+                    <h1>Hello {fullName.FName} {fullName.LName} </h1>
+                    <p> {fullName.Email} </p>
+                    <label htmlFor="FName">First Name</label>
+                    <Input name='FName' type='text' onChange={HandleChange}
+                        value={fullName.FName}
+                        placeHolder='enter your first name' />
+                    <label htmlFor="LName">First Name</label>
+                    <Input name='LName' type='text' onChange={HandleChange}
+                        value={fullName.LName}
+                        placeHolder='enter your Last Name' />
+                    <label htmlFor="Email">First Name</label>
+                    <Input name='Email' type='email' onChange={HandleChange}
+                        value={fullName.Email}
+                        placeHolder='enter your Last Name' />
+                    <Button onClick={HandleSubmit} text='Submit' />
+                    <Button text='nig' />
                 </div>
             </form>
         </div>
