@@ -66,22 +66,9 @@ export function Login() {
         const { name, value } = e.target;
 
         setFullName(PrevValue => {
-            if (name === 'FName') {
-                return {
-                    FName: value,
-                    LName: PrevValue.LName
-                }
-            } else if (name === 'LName') {
-                return {
-                    FName: PrevValue.FName,
-                    LName: value
-                }
-            } else if (name === 'Email') {
-                return {
-                    FName: PrevValue.FName,
-                    LName: PrevValue.LName,
-                    Email: value
-                }
+            return {
+                ...PrevValue,
+                [name]: value
             }
         })
         e.preventDefault()
@@ -118,7 +105,6 @@ export function Login() {
                         value={fullName.Email}
                         placeHolder='enter your Last Name' />
                     <Button onClick={HandleSubmit} text='Submit' />
-                    <Button text='nig' />
                 </div>
             </form>
         </div>
