@@ -12,3 +12,27 @@ body {
   box-shadow: .2em .2em .5em .1em green;
   gap: 1em;
 }
+
+form{
+  margin: auto;
+}
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 200px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.submit-btn{
+  color: white;
+  background: purple;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
