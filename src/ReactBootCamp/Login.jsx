@@ -61,7 +61,6 @@ export function Login() {
         Email: ''
     })
 
-
     function HandleChange(e) {
         const { name, value } = e.target;
 
@@ -74,9 +73,9 @@ export function Login() {
         e.preventDefault()
     }
 
-    function HandleSubmit() {
-        HandleChange()
+    function HandleSubmit(e) {
         e.preventDefault()
+        console.log(fullName)
     }
 
 
@@ -88,7 +87,7 @@ export function Login() {
 
     return (
         <div>
-            <form>
+            <form onSubmit={HandleSubmit}>
                 <div className='form-container'>
                     <h1>Hello {fullName.FName} {fullName.LName} </h1>
                     <p> {fullName.Email} </p>
@@ -104,7 +103,7 @@ export function Login() {
                     <Input name='Email' type='email' onChange={HandleChange}
                         value={fullName.Email}
                         placeHolder='enter your Last Name' />
-                    <Button onClick={HandleSubmit} text='Submit' />
+                    <Button type='submit' onClick={HandleSubmit} text='Submit' />
                 </div>
             </form>
         </div>
