@@ -15,7 +15,7 @@ const ButtonStyle = {
 export function Button(props) {
     return (
         <div>
-            <button style={ButtonStyle} onMouseOver={props.onMouseOver} onClick={props.onClick}>{props.text}</button>
+            <button type={props.type} style={ButtonStyle} onMouseOver={props.onMouseOver} onClick={props.onClick}>{props.text}</button>
         </div>
     )
 }
