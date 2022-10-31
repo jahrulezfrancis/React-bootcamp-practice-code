@@ -61,8 +61,6 @@ export function Login() {
         Email: ''
     })
 
-    const [blogData, setBlogData] = useState(null);
-
     function HandleChange(e) {
         const { name, value } = e.target;
 
@@ -81,13 +79,13 @@ export function Login() {
     }
 
 
-    const ChangingNames = () =>{setStudentNames('Pupu')}
-
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/photos')
-        .then(response => response.json())
-        .then(Received => setBlogData(Received))
-    }, [ChangingNames]);
+            .then(response => {
+                response.json()
+            })
+            .then(Received => console.log(Received))
+    }, []);
 
 
     return (
