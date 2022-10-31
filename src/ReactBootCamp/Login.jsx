@@ -80,7 +80,6 @@ export function Login() {
         console.log(fullName)
     }
 
-    const [StudentNames, setStudentNames] = useState('Kenji');
 
     const ChangingNames = () =>{setStudentNames('Pupu')}
 
@@ -112,8 +111,6 @@ export function Login() {
                     <Button type='submit' onClick={HandleSubmit} text='Submit' />
                 </div>
             </form>
-            <p> {StudentNames} </p>
-            <button onClick={ChangingNames}>Change Name</button>
         </div>
     )
 }
