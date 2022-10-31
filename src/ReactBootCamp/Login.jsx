@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Input } from './Input';
 
@@ -61,6 +61,8 @@ export function Login() {
         Email: ''
     })
 
+    const [blogData, setBlogData] = useState(null);
+
     function HandleChange(e) {
         const { name, value } = e.target;
 
@@ -78,12 +80,16 @@ export function Login() {
         console.log(fullName)
     }
 
+    const [StudentNames, setStudentNames] = useState('Kenji');
 
+    const ChangingNames = () =>{setStudentNames('Pupu')}
 
-    // function HandleLName(e) {
-    //     const NewValue = e.target.value
-    //     setFullName({ LName: NewValue })
-    // }
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/photos')
+        .then(response => response.json())
+        .then(Received => setBlogData(Received))
+    }, [ChangingNames]);
+
 
     return (
         <div>
@@ -106,6 +112,8 @@ export function Login() {
                     <Button type='submit' onClick={HandleSubmit} text='Submit' />
                 </div>
             </form>
+            <p> {StudentNames} </p>
+            <button onClick={ChangingNames}>Change Name</button>
         </div>
     )
 }
